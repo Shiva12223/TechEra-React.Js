@@ -1,0 +1,21 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #152850;
+  font-family: 'Roboto';
+}
+.card-container {
+  height: 80vh;
+  padding: 30px 50px 0px 50px;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+.card-container h1 {
+  color: #ffffff;
+}
+.card-container img {
+  height: 250px;
+  width: 400px;
+}

@@ -1,0 +1,28 @@
+.navbar {
+  background-color: #152850;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+.website-logo-img {
+  height: 30px;
+  width: 80px;
+}
+.link {
+  text-decoration: none;
+}
+.logout-btn {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  height: 40px;
+  width: 90px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
