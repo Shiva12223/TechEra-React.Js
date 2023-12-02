@@ -3,21 +3,25 @@ import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 import './index.css'
 
-class LoginPage extends Component {
+class Login extends Component {
   state = {userId: '', userPin: '', errorMsg: '', showErrorMsg: false}
+
+  handleUserId = event => {
+    this.setState({userId: event.target.value})
+  }
 
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
-    Cookies.set('jwt_token', jwtToken, {expires: 30})
+    Cookies.set('jwt_token', jwtToken, {
+      expires: 30,
+      path: '/',
+    })
+
     history.replace('/')
   }
 
   onSubmitFailure = errorMsg => {
     this.setState({showErrorMsg: true, errorMsg})
-  }
-
-  handleUserId = event => {
-    this.setState({userId: event.target.value})
   }
 
   handleUserPin = event => {
@@ -27,8 +31,9 @@ class LoginPage extends Component {
   onSubmitForm = async event => {
     event.preventDefault()
     const {userId, userPin} = this.state
-    const userDetails = {user_id: userId, userPin}
+    const userDetails = {user_id: userId, pin: userPin}
     const url = 'https://apis.ccbp.in/ebank/login'
+
     const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
@@ -92,4 +97,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage
+export default Login
